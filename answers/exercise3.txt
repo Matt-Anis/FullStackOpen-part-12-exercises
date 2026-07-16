@@ -4,9 +4,9 @@ ran: `
     apt-get -y install nano
     nano /usr/src/app/index.js
     `
-wrote: console.log('Hello Wrold')
+wrote: console.log('Hello World')
 hit: ^O ^X
 
 Step 2:
 ran: `cd /usr/src/app && cat index.js`
-output: `console.log('Hello Wrold')`
+output: `console.log('Hello World')`

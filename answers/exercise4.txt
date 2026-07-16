@@ -1,0 +1,15 @@
+Step 1:
+ran:
+    curl -sL https:<em>//deb.nodesource.com/setup_24.x | bash</em>
+    apt install -y nodejs
+    node -v
+
+output:
+    (i skipped the long download output to keep the file readable)
+    v18.19.1
+
+Step 2:
+ran:
+    node /usr/src/app/index.js
+output:
+    Hello World
