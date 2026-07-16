@@ -1,0 +1,16 @@
+Step 1:
+ran: `docker run -it ubuntu bash`
+output: `root@25d19126796f:/#`
+
+Step 2:
+ran:
+    `
+    cd /usr/src
+    mkdir app
+    ls
+    `
+output: `app`
+
+Step 3:
+ran: `cd app && touch index.js && ls`
+output: `index.js`
