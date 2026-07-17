@@ -6,8 +6,8 @@ COPY --chown=node:node . .
 
 RUN npm ci --omit=dev
 
-ENV DEBUG=express-app:*
+ENV DEBUG=todo-express-backend:server
 
-USER node
+ENV PORT=3000
 
-CMD ["npm", "start"]
+CMD [ "npm", "start" ]
