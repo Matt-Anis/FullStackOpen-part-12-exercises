@@ -13,6 +13,7 @@ services:
 
   redis:
     image: redis
+    command: ["redis-server", "--appendonly", "yes"]
     ports:
       - 3789:6379
 
