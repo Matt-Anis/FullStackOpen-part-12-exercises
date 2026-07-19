@@ -3,9 +3,9 @@ const router = express.Router();
 const redis = require("../redis");
 
 router.get("/", async (_, res) => {
-  const todoCount = (await redis.get("todos_count")) || 0;
+  const added_todos = (await redis.get("todos_count")) || 0;
 
-  res.json({ todoCount });
+  res.json({ added_todos });
 });
 
 module.exports = router;
