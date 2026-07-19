@@ -1,0 +1,62 @@
+Step 1:
+ran:
+    docker compose -f docker-compose.dev.yml up -d
+    docker ps
+output:
+    994b0cd1e74c   mongo:6                  "docker-entrypoint.s…"   2 hours ago    Up 27 seconds   0.0.0.0:3456->27017/tcp, [::]:3456->27017/tcp                     todo-backend-mongo-1
+
+Step 2:
+ran:
+    docker exec -it todo-backend-mongo-1 bash
+output:
+    root@994b0cd1e74c:/#
+
+Step 2:
+ran:
+    mongosh -u root -p example
+output:
+    Current Mongosh Log ID:	6a5c3006071f30988f9df8a2
+    Connecting to:		mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.8.3
+    Using MongoDB:		6.0.28
+    Using Mongosh:		2.8.3
+
+    For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+    ------
+    The server generated these startup warnings when booting
+    2026-07-19T01:59:01.468+00:00: Soft rlimits for open file descriptors too low
+    ------
+
+    test>
+
+ran:
+    show dbs
+output:
+    admin         100.00 KiB
+    config         60.00 KiB
+    local          72.00 KiB
+    the_database   56.00 KiB
+
+ran:
+    use the_database
+
+    db.todos.insertOne({ text: "Increase the number of tools in my tool belt", done: false})
+    b.todos.find({})
+output:
+    [
+        {
+            _id: ObjectId('6a5c1187d5eea2e4569df8a3'),
+            text: 'Write code',
+            done: false
+        },
+        {
+            _id: ObjectId('6a5c1187d5eea2e4569df8a4'),
+            text: 'Learn about containers',
+            done: false
+        },
+        {
+            _id: ObjectId('6a5c313f071f30988f9df8a3'),
+            text: 'Increase the number of tools in my tool belt',
+            done: false
+        }
+    ]
