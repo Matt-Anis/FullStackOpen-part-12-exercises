@@ -1,0 +1,16 @@
+ran:
+    docker  exec -it todo-backend-redis-1 redis-cli
+    KEYS *
+output:
+    1) "todos_count"
+    2) "visits"
+
+ran:
+    GET visits
+output:
+    "1"
+
+ran:
+    SET visits 9001
+output:
+    OK
