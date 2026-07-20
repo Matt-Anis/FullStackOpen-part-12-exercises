@@ -3,6 +3,7 @@ const { REDIS_URL } = require("../util/config");
 
 let set;
 let get;
+let incr;
 
 if (!REDIS_URL) {
   const redisIsDisabled = () => {
@@ -11,6 +12,7 @@ if (!REDIS_URL) {
   };
   set = redisIsDisabled;
   get = redisIsDisabled;
+  incr = redisIsDisabled;
 } else {
   let client = redis.createClient({
     url: REDIS_URL,
