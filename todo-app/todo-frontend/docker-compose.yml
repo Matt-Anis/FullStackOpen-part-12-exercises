@@ -1,5 +1,5 @@
 services:
   todo-frontend:
-    image: .
+    build: .
     ports:
       - 5173:80
