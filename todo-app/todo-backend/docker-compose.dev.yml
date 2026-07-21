@@ -17,5 +17,16 @@ services:
     ports:
       - 3789:6379
 
+  backend:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      REDIS_URL: redis://redis:6379
+      MONGO_URL: mongodb://the_username:the_password@mongo:27017/the_database
+    depends_on:
+      - mongo
+    restart: on-failure
+
 volumes:
   mongo_data:
